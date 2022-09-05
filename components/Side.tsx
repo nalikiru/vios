@@ -8,9 +8,9 @@ import { ImCancelCircle } from 'react-icons/im';
 import SuggestedAccounts from './SuggestedAccounts';
 import Discover from './Discover';
 import Footer from './Footer';
-import useAuthStore from '../../store/authStore';
+import useAuthStore from '../store/authStore';
 const Sidebar: NextPage = () => {
-  const [showSidebar, setShowSidebar] = useState<Boolean>(true);
+  const [showSide, setShowSide] = useState<Boolean>(true);
   const { pathname } = useRouter();
   const { fetchAllUsers, allUsers }: any = useAuthStore();
 
@@ -21,17 +21,17 @@ const Sidebar: NextPage = () => {
   return (
     <div>
       <div
-        className='block xl:hidden m-2 ml-4 mt-3 text-xl'
-        onClick={() => setShowSidebar(!showSidebar)}
+        className='block xl:hidden m-2 ml-4 mt-3 text-xl w-20'
+        onClick={() => setShowSide(!showSide)}
       >
-        {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
+        {showSide ? <ImCancelCircle /> : <AiOutlineMenu />}
       </div>
-      {showSidebar && (
-        <div className='xl:w-400 bg-[#67e8f9] w-20 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 rounded-lg text-white'>
-          <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
+      {showSide && (
+        <div className='xl:w-400 bg-[#67e8f9] w-20 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 rounded-lg '>
+         <div className='xl:pb-4 text-[#FFFFFF]'>
             <Link href='/'>
               <div className={pathname === '/' ? activeLink : normalLink}>
-                <p className='text-2xl'>
+                <p className='text-xl'>
                   <AiFillHome />
                 </p>
                 <span className='capitalize text-xl text-white hidden xl:block'>
@@ -40,7 +40,7 @@ const Sidebar: NextPage = () => {
               </div>
             </Link>
           </div>
-          <Discover />
+        <Discover />
           <SuggestedAccounts
             fetchAllUsers={fetchAllUsers}
             allUsers={allUsers}

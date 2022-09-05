@@ -1,6 +1,6 @@
 import { Video } from '../type'
-import NoPin from './components/NoPin'
-import VideoCard from './components/VideoCard'
+import NoPin from '../components/NoPin'
+import VideoCard from '../components/VideoCard'
 import axios from 'axios'
 import { BASE_URL } from '../utils'
 
@@ -11,16 +11,18 @@ interface Iprops {
 const Home = ({ videos }: Iprops) => {
   console.log(videos)
   return (
-    <div className="flex bg-[#F8F8F8] flex-col gap-0 videos">
+    <body>
+    <div className="flex bg-[#F8F8F8] flex-col vid w-[245px] lg:w-[700px]">
       {videos.length ? (
         videos.map((video: Video) => (
-          <VideoCard post={video} key={video._id} />
+          <VideoCard post={video} key={video?._id} />
         )) 
       ) : (
         <NoPin text={'No video found!'} />
       )
     }
     </div>
+    </body>
   )
 }
 

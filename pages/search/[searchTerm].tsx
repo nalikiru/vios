@@ -5,8 +5,8 @@ import { GoVerified } from 'react-icons/go';
 import Link from 'next/link';
 import axios from 'axios';
 
-import NoResults from '../components/NoPin';
-import VideoCard from '../components/VideoCard';
+import NoResults from '../../components/NoPin';
+import VideoCard from '../../components/VideoCard';
 import useAuthStore from '../../store/authStore';
 import { BASE_URL } from '../../utils';
 import { IUser, Video } from '../../type';

@@ -7,10 +7,10 @@ import { BiSearch } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
 import { GoogleLogin, googleLogout  } from '@react-oauth/google';
 
-import useAuthStore from '../../store/authStore';
-import { IUser } from '../../type';
-import { createOrGetUser } from '../../utils';
-import Logo from '../../utils/logo.png';
+import useAuthStore from '../store/authStore';
+import { IUser } from '../type';
+import { createOrGetUser } from '../utils';
+import Logo from '../utils/logo.png';
 
 const Nav = () => {
   const [user, setUser] = useState<IUser | null>();
@@ -31,7 +31,7 @@ const Nav = () => {
   };
 
   return (
-    <div className='w-100 rounded-b-lg bg-cyan-200 flex justify-between items-center border-b-2 border-gray-200 py-2 px-4 p-5'>
+    <div className='w-100 rounded-b-lg bg-[#67e8f9] flex justify-between items-center border-b-2  py-2 px-4 p-5'>
       <Link href='/'>
         <div className='w-[100px] md:w-[129px] md:h-[30px] h-[38px] items-center'>
           <Image
@@ -46,12 +46,12 @@ const Nav = () => {
       <div className='relative hidden md:block lg:block'>
         <form
           onSubmit={handleSearch}
-          className='absolute md:static top-10 -left-20 bg-cyan-200'
+          className='absolute md:static top-10 -left-20 bg-[#67e8f9]'
         >
           <input
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            className='bg-primary p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[300px] md:w-[350px] rounded-full  md:top-0'
+            className='bg-primary p-3 md:text-md font-medium   focus:outline-none   w-[300px] md:w-[350px] rounded-full  md:top-0'
             placeholder='Search accounts and videos'
           />
           <button
@@ -71,12 +71,12 @@ const Nav = () => {
                 <span className='hidden md:block'>Upload </span>
               </button>
             </Link>
-            {user.image && (
+            {user?.image && (
               <Link href={`/profile/${user._id}`}>
                 <div>
                   <Image
                     className='rounded-full cursor-pointer'
-                    src={user.image}
+                    src={user?.image}
                     alt='user'
                     width={40}
                     height={40}
@@ -86,13 +86,13 @@ const Nav = () => {
             )}
               <button
                 type='button'
-                className=' border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'
+                className=' h-30 w-40 border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'
                 onClick={() => {
                   googleLogout();
                   removeUser();
                 }}
               >
-                <AiOutlineLogout color='red' fontSize={21} />
+                <AiOutlineLogout color='red' fontSize={26} />
               </button>
           </div>
         ) : (

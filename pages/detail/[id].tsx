@@ -7,9 +7,9 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { BsFillPlayFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 
-import Comments from '../components/Comments';
+import Comments from '../../components/Comments';
 import { BASE_URL } from '../../utils';
-import LikeButton from '../components/LikeButton'; 
+import LikeButton from '../../components/LikeButton'; 
 import useAuthStore from '../../store/authStore';
 import { Video } from '../../type';
 import axios from 'axios';
@@ -99,7 +99,7 @@ const Detail = ({ postDetails }: IProps) => {
               <div className='absolute top-[45%] left-[40%]  cursor-pointer'>
                 {!isPlaying && (
                   <button onClick={onVideoClick}>
-                    <BsFillPlayFill className='text-white text-6xl lg:text-8xl' />
+                    <BsFillPlayFill className='text-[#FFFFFF] text-6xl lg:text-8xl' />
                   </button>
                 )}
               </div>
@@ -107,11 +107,11 @@ const Detail = ({ postDetails }: IProps) => {
             <div className='absolute bottom-5 lg:bottom-10 right-5 lg:right-10  cursor-pointer'>
               {isVideoMuted ? (
                 <button onClick={() => setIsVideoMuted(false)}>
-                  <HiVolumeOff className='text-white text-3xl lg:text-4xl' />
+                  <HiVolumeOff className='text-[#FFFFFF] text-3xl lg:text-4xl' />
                 </button>
               ) : (
                 <button onClick={() => setIsVideoMuted(true)}>
-                  <HiVolumeUp className='text-white text-3xl lg:text-4xl' />
+                  <HiVolumeUp className='text-[#FFFFFF] text-3xl lg:text-4xl' />
                 </button>
               )}
             </div>

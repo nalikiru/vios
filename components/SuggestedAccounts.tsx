@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { GoVerified } from 'react-icons/go';
 
-import { IUser } from '../../type';
+import { IUser } from '../type';
 
 interface IProps {
   fetchAllUsers: () => void;
@@ -29,24 +29,27 @@ const SuggestedAccounts: NextPage<IProps> = ({ fetchAllUsers, allUsers }) => {
         {users?.slice(0, 6).map((user: IUser) => (
           <Link href={`/profile/${user._id}`} key={user._id}>
             <div className='flex gap-3 hover:bg-primary p-2 cursor-pointer font-semibold rounded'>
-              <div className='w-8 h-8'>
-                <Image
-                  width={34}
-                  height={34}
-                  className='rounded-full'
-                  src={user.image}
-                  alt='user-profile'
-                  layout='responsive'
-                />
-              </div>
+            {user?.image && (
+              <Link href={`/profile/${user._id}`}>
+                <div>
+                  <Image
+                    className='rounded-full cursor-pointer'
+                    src={user?.image}
+                    alt='user'
+                    width={40}
+                    height={40}
+                  />
+                </div>
+              </Link>
+            )}
 
-              <div className='hidden xl:block'>
+              <div className='hidden text-blue xl:block'>
                 <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>
                   {user.userName.replace(/\s+/g, '')}{' '}
                   <GoVerified className='text-blue-400' />
                 </p>
                 <p className='capitalize text-gray-400 text-xs'>
-                  {user.userName}
+                  {user?.userName}
                 </p>
               </div>
             </div>

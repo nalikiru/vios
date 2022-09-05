@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { GoVerified } from 'react-icons/go';
 import axios from 'axios';
 
-import VideoCard from '../components/VideoCard';
-import NoResults from '../components/NoPin';
+import VideoCard from '../../components/VideoCard';
+import NoResults from '../../components/NoPin';
 import { IUser, Video } from '../../type';
 import { BASE_URL } from '../../utils';
 

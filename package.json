@@ -14,7 +14,7 @@
     "@sanity/client": "^3.3.0",
     "axios": "^0.27.2",
     "core-js": "^3.25.0",
-    "firebase": "^9.9.2",
+    "firebase": "^10.2.0",
     "git": "^0.1.5",
     "jwt-decode": "^3.1.2",
     "next": "12.1.6",
